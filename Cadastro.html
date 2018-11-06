@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="description" content="Cadastre-se e continue recebendo notícias sobre Jazz e cinema. ">
+    <title>Jazz & Movies</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--Estilo desk-->
+    <link media="(min-width: 801px)" href="css/estilo1.css" rel="stylesheet" type="text/css"/>
+    <!--Estilo mobile-->
+    <link rel="stylesheet" media="(max-width: 800px)" href="css/estilo2.css" />
+    <script src="scripts/modernizr-2.6.2.js"></script>
+    <script src="scripts/jquery-1.10.2.min.js"></script>
+    <script src="scripts/events.js"></script>
+    <script src="scripts/cadastroScripts.js"></script>
+
+    <!--font Lato-->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <!--font Lime-->
+    <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
+    <!--font Lime-->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+</head>
+<body id="cadastro" class="mobile-fundo">
+  <div class="tudo">
+    <header class="hidden-sm hidden-xs">
+      <!--Navegação-->
+      <nav id="menu" class="navbar navbar-fixed-top navbar-inverse justify-content-center" role="navigation">
+        <div class="container hidden-xs">
+        <!--header-->
+          <div id="mynav">
+            <ul class="nav navbar-nav vamos">
+              <li class="nav-item navbar-btn"><a href="historia.html">História</a></li>
+              <li class="nav-item navbar-btn"><a href="jazzandcinema.html">Jazz no Cinema</a></li></a>
+              <li><a href="index.html"><img class="logomenubrand img-responsive" src="images/logomenu.png" alt=""></li></a>
+              <li class="nav-item navbar-btn"><a href="critica.html">Sobre nós</a></li>
+              <li class="nav-item navbar-btn"><a href="Cadastro.html">Cadastro</a></li>
+            </ul>
+
+            <div class="redessociais">
+              <a href="https://open.spotify.com/user/matheusaraujop/playlist/3lVp8LYt2CEHgsxXIm5U12?si=TnyiBKwEQo6BhomGvxVXwA" target="_blank"><span class="spot"><img src="images/spotif.png" alt=""></span></a>
+              <a href="https://www.instagram.com/jazz_movies/" target="_blank"><span class="insta"><img src="images/insta.png" alt=""></span></a>
+            </div>
+          </div>
+          <!--<span><input class="busca-icon" type="search" name="busca"></span>-->
+        </div>
+      </nav>
+    </header>
+
+    <div id="home-cel" class="hidden-lg hidden-md">
+        <!---menu celular e tablet-->
+      <menu>
+        <div class="menu2">
+
+
+            <a href="index.html"><img src="images/logomenu.png" alt="" class="logosm"></a>
+            <nav id="nav-sm">
+              <div class="navegacao">
+
+                <button type="button" name="button" class="button-menu collapsed" data-toggle="collapse" data-target="#menu-sm" aria-expanded="true" aria-controls="menu-sm">Menu<span class="setinha"><img class="seta" src="images/setadourada.png"  alt=""></span></button>
+
+                <ul id="menu-sm" class="collapse menu-list" aria-labelledby="navegacao" data-parent="#nav-sm">
+
+                  <li class="nav-item navbar-btn"><a href="historia.html">História</a></li>
+                  <li class="nav-item navbar-btn"><a href="jazzandcinema.html">Jazz no Cinema</a></li></a>
+                  <li class="nav-item navbar-btn"><a href="critica.html">Sobre</a></li>
+                  <li class="nav-item navbar-btn"><a href="Cadastro.html">Cadastro</a></li>
+
+                </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </menu>
+      </div>
+
+
+
+    <div class="body-cadastro">
+        <div class="container body-content">
+            <article>
+                <h1 class="Titlescadastro">Cadastre seu e-mail</h1>
+                <p class="cadastrop"> e receba novidades sobre Jazz no cinema.</p>
+                <br>
+
+                <form action="php/salvarusuario.php" method="POST" id="formCadastrar" onSubmit="return validacaoSalvar()">
+                    <div class="text-size text-tablet">
+                            <label for="Nome">Nome*</label>
+                            <input class="form-control text-style" placeholder="Nome Completo" id="Nome" name="Nome" type="text" maxlength="50" required>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Nome" data-valmsg-replace="true"></span>
+                        </div>
+                        <br/>
+
+                        <div class="text-size text-tablet">
+                            <label for="Email">E-mail*</label>
+                            <input class="form-control text-style" placeholder="E-mail" id="Email" name="Email" type="email" maxlength="50" required>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                        </div>
+                        <br />
+
+                        <div class="text-size text-tablet">
+                            <label for="DataNascimento">Data de Nascimento</label>
+                            <input class="form-control text-style" maxlength="10" placeholder="Ex. 20/01/2018" onkeypress="return mascaraData(this, event)" id="DataNascimento" name="DataNascimento" type="text">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="DataNascimento" data-valmsg-replace="true"></span>
+                        </div>
+                        <br />
+
+                        <div class="text-size text-tablet">
+                            <label for="Sexo">Sexo</label>
+                            <select class="form-control text-style" data-val="true" data-val-required="Campo obrigatório." id="Sexo" name="Sexo">
+                                <option selected="selected" value="0">Selecione...</option>
+                                <option value="1">Feminino</option>
+                                <option value="2">Masculino</option>
+                                <option value="3">Outro</option>
+                            </select>
+                        </div>
+                        <br />
+
+                        <div class="text-size text-tablet">
+                            <label for="Estados">Estados</label>
+                            <select class="form-control text-style" data-val="true" data-val-required="Campo obrigatório." id="Estados" name="Estados">
+                                <option selected="selected" value="0">Selecione...</option>
+                                <option value="1">AC</option>
+                                <option value="2">AL</option>
+                                <option value="3">AP</option>
+                                <option value="4">AM</option>
+                                <option value="5">BA</option>
+                                <option value="6">CE</option>
+                                <option value="7">DF</option>
+                                <option value="8">ES</option>
+                                <option value="9">GO</option>
+                                <option value="10">MA</option>
+                                <option value="11">MT</option>
+                                <option value="12">MS</option>
+                                <option value="13">MG</option>
+                                <option value="14">PA</option>
+                                <option value="15">PB</option>
+                                <option value="16">PR</option>
+                                <option value="17">PE</option>
+                                <option value="18">PI</option>
+                                <option value="19">RJ</option>
+                                <option value="20">RN</option>
+                                <option value="21">RS</option>
+                                <option value="22">RO</option>
+                                <option value="23">RR</option>
+                                <option value="24">SC</option>
+                                <option value="25">SP</option>
+                                <option value="26">SE</option>
+                                <option value="27">TO</option>
+                            </select>
+                        </div>
+                        <br/>
+
+                        <div class="form-check">
+                            <label class="checkbox-inline" for="DadosNotificacao">
+                                <input type="checkbox" id="DadosNotificacao" name="DadosNotificacao" value="true">
+                                <b>Desejo receber as novidades por e-mail</b>
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <label class="checkbox-inline" for="DadosPesquisa">
+                                <input type="checkbox" id="DadosPesquisa" name="DadosPesquisa" value="true">
+                                <b>Aceito enviar meus dados para fins de pesquisa</b>
+                            </label>
+                        </div>
+                        <br />
+
+                        <div class="form-group">
+                            <a class="btn button-style" href="index.html">Voltar</a>
+                            &nbsp;
+                            <button name="btnSalvar" id="btnSalvar" class="btn button-style" title="Salvar">
+                                Salvar
+                            </button>
+                        </div>
+                </form>
+
+                <p>* Campos obrigatórios</p>
+
+            </article>
+        </div>
+    </div>
+    <div class="hidden-lg hidden-md">
+      <a href="https://open.spotify.com/user/matheusaraujop/playlist/3lVp8LYt2CEHgsxXIm5U12?si=TnyiBKwEQo6BhomGvxVXwA" target="_blank"><span class="spot"><img src="images/spotify.svg" alt=""></span></a>
+      <a href="https://www.instagram.com/jazz_movies/" target="_blank"><span class="insta"><img src="images/insta.svg" alt=""></span></a>
+    </div>
+  </div>
+
+    <script src="scripts/jquery-1.10.2.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+</body>
+</html>
